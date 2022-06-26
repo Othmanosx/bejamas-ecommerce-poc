@@ -1,0 +1,118 @@
+$borderColor: #e4e4e4;
+$headingColor: #656565;
+$bgWhite: #fff;
+$lightGrey: #b4b4b4;
+$black: #000;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+hr {
+  color: $borderColor;
+  border-width: 2px;
+  border-style: solid;
+  margin-bottom: 1.5rem;
+  @media screen and (max-width: 768px) {
+    margin-left: -2rem;
+    margin-right: -2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+h1 {
+  font-size: 2rem;
+}
+h4 {
+  font-size: 1.4rem;
+}
+p,
+h3 {
+  color: $headingColor;
+}
+p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+}
+
+label {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 24px;
+  color: #9b9b9b;
+}
+
+input[type='checkbox'] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: $bgWhite;
+  margin-right: 1rem;
+  font-size: 1.1rem;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.1em solid currentColor;
+  border-radius: 0em;
+  display: grid;
+  place-content: center;
+}
+input[type='checkbox']::before {
+  content: '';
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 90ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  background-color: CanvasText;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+input[type='checkbox']:checked::before {
+  transform: scale(1);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  li {
+    list-style: none;
+    padding: 3px;
+    margin: 3px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: $lightGrey;
+  }
+  li.next,
+  li.previous {
+    color: $black;
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+  li.next {
+    transform: rotate(90deg);
+  }
+  li.previous {
+    transform: rotate(270deg);
+  }
+  li.selected {
+    color: $black;
+  }
+}
+.pagination-disabled {
+  pointer-events: none;
+  opacity: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
